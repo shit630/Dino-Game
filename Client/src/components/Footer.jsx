@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const Footer = () => {
   return (
@@ -24,13 +24,22 @@ const Footer = () => {
 
           {/* Social Links */}
           <div className="flex items-center space-x-3">
-            <a href="#" className="text-emerald-200 hover:text-white transition-colors duration-200">
+            <a
+              href="#"
+              className="text-emerald-200 hover:text-white transition-colors duration-200"
+            >
               <span>🐙</span>
             </a>
-            <a href="#" className="text-emerald-200 hover:text-white transition-colors duration-200">
+            <a
+              href="#"
+              className="text-emerald-200 hover:text-white transition-colors duration-200"
+            >
               <span>🐦</span>
             </a>
-            <a href="#" className="text-emerald-200 hover:text-white transition-colors duration-200">
+            <a
+              href="#"
+              className="text-emerald-200 hover:text-white transition-colors duration-200"
+            >
               <span>📘</span>
             </a>
           </div>

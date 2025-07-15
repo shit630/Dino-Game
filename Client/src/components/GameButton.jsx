@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const GameButton = ({ onStartGame }) => {
   return (
@@ -9,12 +9,14 @@ const GameButton = ({ onStartGame }) => {
       >
         <div className="absolute inset-0 bg-gradient-to-r from-orange-400 to-red-500 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
         <div className="relative flex items-center space-x-3">
-          <span className="text-2xl group-hover:translate-x-1 transition-transform duration-300">▶️</span>
+          <span className="text-2xl group-hover:translate-x-1 transition-transform duration-300">
+            ▶️
+          </span>
           <span className="text-2xl">Start Game</span>
         </div>
         <div className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
       </button>
-      
+
       <p className="text-emerald-700 text-lg font-medium animate-pulse">
         🦕 Ready for an adventure?
       </p>
