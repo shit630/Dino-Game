@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [loginForm, setLoginForm] = useState({
-    email: '',
-    password: ''
+    email: "",
+    password: "",
   });
 
   const toggleMenu = () => {
@@ -18,7 +18,7 @@ const Navbar = () => {
     setIsMenuOpen(false);
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
@@ -36,7 +36,7 @@ const Navbar = () => {
     if (loginForm.email && loginForm.password) {
       setIsLoggedIn(true);
       setShowLoginModal(false);
-      setLoginForm({ email: '', password: '' });
+      setLoginForm({ email: "", password: "" });
     }
   };
 
@@ -44,7 +44,7 @@ const Navbar = () => {
     const { name, value } = e.target;
     setLoginForm((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
@@ -56,12 +56,14 @@ const Navbar = () => {
             {/* Logo */}
             <div className="flex items-center space-x-3">
               <span className="text-3xl">🦖</span>
-              <span className="text-xl font-bold text-emerald-800">Dino Game</span>
+              <span className="text-xl font-bold text-emerald-800">
+                Dino Game
+              </span>
             </div>
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-6">
-              {['home', 'leaderboard', 'about', 'contact'].map((item) => (
+              {["home", "leaderboard", "about", "contact"].map((item) => (
                 <a
                   key={item}
                   href={`#${item}`}
@@ -69,10 +71,10 @@ const Navbar = () => {
                   onClick={(e) => handleNavClick(e, item)}
                 >
                   <span>
-                    {item === 'home' && '🏠'}
-                    {item === 'leaderboard' && '🏆'}
-                    {item === 'about' && 'ℹ️'}
-                    {item === 'contact' && '📧'}
+                    {item === "home" && "🏠"}
+                    {item === "leaderboard" && "🏆"}
+                    {item === "about" && "ℹ️"}
+                    {item === "contact" && "📧"}
                   </span>
                   <span className="capitalize">{item}</span>
                 </a>
@@ -118,12 +120,32 @@ const Navbar = () => {
                 aria-label="Toggle menu"
               >
                 {isMenuOpen ? (
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  <svg
+                    className="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M6 18L18 6M6 6l12 12"
+                    />
                   </svg>
                 ) : (
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                  <svg
+                    className="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M4 6h16M4 12h16M4 18h16"
+                    />
                   </svg>
                 )}
               </button>
@@ -134,7 +156,7 @@ const Navbar = () => {
           {isMenuOpen && (
             <div className="md:hidden bg-white/95 backdrop-blur-sm rounded-lg shadow-lg mt-2 py-2">
               <div className="flex flex-col space-y-3 px-4 pb-3">
-                {['home', 'leaderboard', 'about', 'contact'].map((item) => (
+                {["home", "leaderboard", "about", "contact"].map((item) => (
                   <a
                     key={item}
                     href={`#${item}`}
@@ -142,10 +164,10 @@ const Navbar = () => {
                     onClick={(e) => handleNavClick(e, item)}
                   >
                     <span>
-                      {item === 'home' && '🏠'}
-                      {item === 'leaderboard' && '🏆'}
-                      {item === 'about' && 'ℹ️'}
-                      {item === 'contact' && '📧'}
+                      {item === "home" && "🏠"}
+                      {item === "leaderboard" && "🏆"}
+                      {item === "about" && "ℹ️"}
+                      {item === "contact" && "📧"}
                     </span>
                     <span className="capitalize">{item}</span>
                   </a>
