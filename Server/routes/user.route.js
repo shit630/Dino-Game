@@ -53,7 +53,7 @@ UserRoute.post("/login", async (req, res) => {
   }
   try {
     const user = await UserModel.findOne({ email });
-    if (!user || user.password !== password) {
+    if (!user) {
       return res.status(401).json({ message: "Invalid credentials" });
     } else {
       let hash = user.password;
