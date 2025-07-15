@@ -1,21 +1,8 @@
 // src/pages/Home.jsx
-import React, { useState } from "react";
-import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import GameButton from "../components/GameButton";
-import ScoreDisplay from "../components/ScoreDisplay";
+import GamePage from "../pages/GamePage";
 
 function Home() {
-  const [highestScore, setHighestScore] = useState(0);
-
-  const handleStartGame = () => {
-    const newScore = Math.floor(Math.random() * 5000) + 100;
-    if (newScore > highestScore) {
-      setHighestScore(newScore);
-    }
-    console.log("Starting game...");
-  };
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-emerald-100 via-green-50 to-blue-100 relative overflow-hidden">
       {/* Decorative Background */}
@@ -40,8 +27,6 @@ function Home() {
         <div className="absolute bottom-1/3 right-1/4 w-24 h-24 bg-gradient-to-br from-orange-300 to-red-400 rounded-full opacity-25 animate-pulse delay-1000"></div>
       </div>
 
-      <Navbar />
-
       <main className="pt-20 pb-20 px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-6xl mx-auto">
           {/* Hero Section */}
@@ -56,36 +41,8 @@ function Home() {
           </div>
 
           {/* Game Section */}
-          <div className="flex flex-col lg:flex-row items-center justify-center space-y-12 lg:space-y-0 lg:space-x-16 mb-16">
-            <div className="order-2 lg:order-1">
-              <ScoreDisplay highestScore={highestScore} />
-            </div>
-
-            <div className="order-1 lg:order-2">
-              <GameButton onStartGame={handleStartGame} />
-            </div>
-
-            <div className="order-3 lg:order-3 bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-emerald-200">
-              <h3 className="text-xl font-bold text-emerald-800 mb-4 text-center">
-                Game Stats
-              </h3>
-              <div className="space-y-3 text-emerald-700">
-                <div className="flex justify-between items-center">
-                  <span className="font-medium">Games Played:</span>
-                  <span className="font-bold">
-                    {highestScore > 0 ? "1+" : "0"}
-                  </span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="font-medium">Difficulty:</span>
-                  <span className="font-bold text-orange-600">Dynamic</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="font-medium">Status:</span>
-                  <span className="font-bold text-green-600">Ready</span>
-                </div>
-              </div>
-            </div>
+          <div className="mb-5">
+            <GamePage />
           </div>
 
           {/* Features */}

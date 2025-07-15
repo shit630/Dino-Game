@@ -62,7 +62,12 @@ const GamePage = () => {
             const newLeft = obs.left - 5;
 
             // Score if obstacle passes dino
-            if (!obs.passed && dinoRef.current && newLeft + 40 < dinoBox.left) {
+            if (
+              !obs.passed &&
+              dinoRef.current &&
+              newLeft + 40 < dinoBox.left &&
+              obs.left < dinoBox.left
+            ) {
               setScore((prevScore) => prevScore + 1);
               return { ...obs, left: newLeft, passed: true };
             }
