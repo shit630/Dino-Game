@@ -61,16 +61,18 @@ const GamePage = () => {
           .map((obs) => {
             const newLeft = obs.left - 5;
 
-            // Score if obstacle passes dino
-            if (
-              !obs.passed &&
-              dinoRef.current &&
-              newLeft + 40 < dinoBox.left &&
-              obs.left < dinoBox.left
-            ) {
+            // Prevent false positive scoring right after obstacle spawns
+            const dinoX = dinoBox?.left || 0;
+            const dinoWidth = dinoBox?.width || 50; // fallback to 50 if undefined
+            const obsWidth = 40;
+
+            const hasCrossedDino = newLeft + obsWidth < dinoX;
+
+            if (!obs.passed && hasCrossedDino) {
               setScore((prevScore) => prevScore + 1);
               return { ...obs, left: newLeft, passed: true };
             }
+
             return { ...obs, left: newLeft };
           })
           .filter((obs) => obs.left > -50)
