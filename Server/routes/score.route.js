@@ -30,7 +30,7 @@ ScoreRoute.post("/highest-score", authMiddleware, async (req, res) => {
     }
 
     res.status(200).json({
-      message: "You have achived new highest score",
+      message: "You have achieved the new highest score",
       highestScore: existingScore.highestScore,
     });
   } catch (error) {
