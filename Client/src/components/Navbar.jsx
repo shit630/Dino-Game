@@ -41,6 +41,20 @@ const Navbar = () => {
               <span>📧</span>
               <span>Contact</span>
             </a>
+            <a 
+              href="/pages/login" 
+              className="flex items-center space-x-1 text-emerald-700 hover:text-emerald-900 transition-colors duration-200 font-medium"
+            >
+              <span>📧</span>
+              <button>Login</button>
+            </a>
+            <a 
+              href="/pages/signup" 
+              className="flex items-center space-x-1 text-emerald-700 hover:text-emerald-900 transition-colors duration-200 font-medium"
+            >
+              <span>📧</span>
+              <button>Signup</button>
+            </a>
           </div>
 
           {/* Mobile menu button */}

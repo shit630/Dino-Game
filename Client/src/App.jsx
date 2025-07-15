@@ -4,6 +4,19 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import GameButton from './components/GameButton';
 import ScoreDisplay from './components/ScoreDisplay';
+import { Routes, Route } from 'react-router-dom';
+import Signup from "./pages/signup";
+import Login from "./pages/login";
+
+function MainApp() {
+  return (
+    <Routes>
+      <Route path="/signup" element={<Signup />} />
+      <Route path="/login" element={<Login />} />
+    </Routes>
+  );
+}
+// export default MainApp; // Removed to avoid multiple default exports
 
 function App() {
   const [highestScore, setHighestScore] = useState(0);
@@ -108,3 +121,4 @@ function App() {
 }
 
 export default App;
+export { MainApp as App }; // Exporting MainApp for routing
