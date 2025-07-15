@@ -53,7 +53,7 @@ UserRoute.post("/login", async (req, res) => {
   }
   try {
     const user = await UserModel.findOne({ email });
-    if (!user) {
+    if (!user || user.password !== password) {
       return res.status(401).json({ message: "Invalid credentials" });
     } else {
       let hash = user.password;
@@ -66,7 +66,14 @@ UserRoute.post("/login", async (req, res) => {
             var token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
               expiresIn: "7d",
             });
-            res.status(200).json({ msg: "Login success", loginProof: token });
+            res
+              .cookie("token", token, {
+                httpOnly: true,
+                secure: false,
+                sameSite: "lax",
+              })
+              .status(200)
+              .json({ msg: "Login success", loginProof: token });
           } else {
             res.status(404).json({ msg: "Wrong Password" });
           }
@@ -74,7 +81,7 @@ UserRoute.post("/login", async (req, res) => {
       });
     }
   } catch (error) {
-    console.error("Login Error:", err.message);
+    console.error("Login Error:", error.message);
     res.status(500).json({ message: "Server error" });
   }
 });
@@ -92,7 +99,7 @@ UserRoute.post("/forget-password", async (req, res) => {
       return res.status(404).json({ message: "User not found" });
     } else {
       var token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
-        expiresIn: "7d",
+        expiresIn: "15m",
       });
       let resetLink = `http://localhost:8080/users/reset-password?token=${token}`;
       const transporter = nodemailer.createTransport({
