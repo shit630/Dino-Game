@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const Navbar = () => {
   return (
@@ -8,34 +8,36 @@ const Navbar = () => {
           {/* Logo */}
           <div className="flex items-center space-x-3">
             <span className="text-3xl">🦖</span>
-            <span className="text-xl font-bold text-emerald-800">Dino Game</span>
+            <span className="text-xl font-bold text-emerald-800">
+              Dino Game
+            </span>
           </div>
-          
+
           {/* Navigation Links */}
           <div className="hidden md:flex items-center space-x-8">
-            <a 
-              href="#home" 
+            <a
+              href="#home"
               className="flex items-center space-x-1 text-emerald-700 hover:text-emerald-900 transition-colors duration-200 font-medium"
             >
               <span>🏠</span>
               <span>Home</span>
             </a>
-            <a 
-              href="#leaderboard" 
+            <a
+              href="#leaderboard"
               className="flex items-center space-x-1 text-emerald-700 hover:text-emerald-900 transition-colors duration-200 font-medium"
             >
               <span>🏆</span>
               <span>Leaderboard</span>
             </a>
-            <a 
-              href="#about" 
+            <a
+              href="#about"
               className="flex items-center space-x-1 text-emerald-700 hover:text-emerald-900 transition-colors duration-200 font-medium"
             >
               <span>ℹ️</span>
               <span>About</span>
             </a>
-            <a 
-              href="#contact" 
+            <a
+              href="#contact"
               className="flex items-center space-x-1 text-emerald-700 hover:text-emerald-900 transition-colors duration-200 font-medium"
             >
               <span>📧</span>
@@ -46,8 +48,18 @@ const Navbar = () => {
           {/* Mobile menu button */}
           <div className="md:hidden">
             <button className="text-emerald-700 hover:text-emerald-900 transition-colors duration-200">
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
               </svg>
             </button>
           </div>
